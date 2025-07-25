@@ -3,8 +3,10 @@ import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { magicLink } from "better-auth/plugins";
 
 import { prisma } from '../helpers/prisma';
+import { expo } from '@better-auth/expo';
+import { sendMagicLink } from '../helpers/email/sendMagicLink';
 
-const env = Bun.env as {
+const env = process.env as {
   GITHUB_CLIENT_ID: string;
   GITHUB_CLIENT_SECRET: string;
   GOOGLE_CLIENT_ID: string;
@@ -28,9 +30,14 @@ export const auth = betterAuth({
     },
   },
   plugins: [
+    expo(),
     magicLink({
       sendMagicLink: async ({ email, token, url }, request) => {
-        // send email to user
+        sendMagicLink({
+          email,
+          token,
+          url,
+        })
       }
     })
   ]
