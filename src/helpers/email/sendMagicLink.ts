@@ -36,8 +36,6 @@ export async function sendMagicLink({
             text-decoration: none;
             font-weight: bold;
         ">Login Now</a>
-        <p style="margin-top: 20px;">Or copy and paste this link into your browser:</p>
-        <code style="word-break: break-all;">${url}</code>
       </div>
     `,
     };
