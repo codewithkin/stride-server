@@ -20,7 +20,7 @@ export async function sendMagicLink({
     });
 
     const mailOptions = {
-        from: '"Stride Auth" <no-reply@stride.com>', // customize
+        from: '"Stride Auth" <no-reply@stride.com>',
         to: email,
         subject: 'Your Magic Login Link',
         html: `

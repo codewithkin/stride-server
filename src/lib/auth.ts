@@ -17,7 +17,7 @@ export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: 'postgresql',
   }),
-  // Allow requests from the frontend development server
+  baseURL: process.env.NODE_ENV === 'production' ? 'https://api.stride.buzz' : 'http://192.168.1.2:8080',
   trustedOrigins: [
     "*",
     "stride://*"
