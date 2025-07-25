@@ -18,7 +18,10 @@ export const auth = betterAuth({
     provider: 'postgresql',
   }),
   // Allow requests from the frontend development server
-  trustedOrigins: ["*"],
+  trustedOrigins: [
+    "*",
+    "stride://*"
+  ],
   socialProviders: {
     github: {
       clientId: env.GITHUB_CLIENT_ID,
